@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+
+<!-- ------------------------------------
+  head
+  ------------------------------------ -->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <title>Temp</title>
+
+  <!-- ------------------------------------
+    OGP設定
+  ------------------------------------ -->
+  <!-- ※基本共通設定 -->
+  <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#">
+    <title>ページのタイトル</title>
+    <meta property="og:title" content="ページのタイトル" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="ページのURL" />
+    <meta property="og:image" content="サムネイル画像のURL" />
+    <meta property="og:site_name" content="サイト名" />
+    <meta property="og:description" content="ページのディスクリプション" />
+    
+    <!-- Facebook用設定 -->
+    <meta property="fb:app_id" content="App-ID（15文字の半角数字）" />
+    <meta property="fb:admins" content="adminID（15文字の半角数字）" />
+    
+    <!-- ※Twitter共通設定 -->
+    <meta name="twitter:card" content="Twitterカードの種類" />
+
+
+  <!-- ------------------------------------
+    CSS設定
+  ------------------------------------ -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=BhuTuka+Expanded+One&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Hubballi&display=swap" rel="stylesheet">
+
+  <!-- ------------------------------------
+    パンくずリスト設定
+  ------------------------------------ -->
+
+
+
+  <!-- ------------------------------------
+    javascript　jQuery
+  ------------------------------------ -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+</head>
+<!-- ------------------------------------
+  body
+  ------------------------------------ -->
+<body>
+
+  <header>
+    <h1><a href="index.html">template</a></h1>
+
+    <!-- ------------------------------------
+    javascript　jQuery　ハンバーガーメニュー
+    ------------------------------------ -->
+      <button type="button" class="menu-trigger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+    
+        <nav id="global-nav">
+          <ul>
+            <li><a href="">HOME</a></li>
+            <li><a href="">MENU</a></li>
+            <li><a href="">ITEM</a></li>
+            <li><a href="">ACCESS</a></li>
+            <li><a href="">BLOG</a></li>
+            <li><a href="">CONTACT</a></li>
+          </ul>
+        </nav>
+  </header>
+
+  <!-- ------------------------------------
+  TOPに戻るボタン
+  ------------------------------------ -->
+  <div id="page_up" class="page_up is-hide">Top</div>
+
+  <main>
+    <!-- ------------------------------------
+    ヒーローイメージ
+    
+    ------------------------------------ -->
+    <div class="hero"><img alt="" src="img/hero.jpg"></div>
+
+    <!-- ------------------------------------
+    javascript　jQuery　スライダー
+    <div id="slide">
+    <img src="img/hero.jpg">
+    <img src="img/hero.jpg">
+    <img src="img/hero.jpg">
+    <p id="nav-r"><a href="#" class="btns">＞</a></p>
+    <p id="nav-l"><a href="#" class="btns">＜</a></p>
+    </div>
+    ------------------------------------ -->
+    
+     
+
+    <!-- ------------------------------------
+    about one
+    ------------------------------------ -->
+    <section id="about" class="about">
+      <h2>ABOUT</h2>
+      <p>黄色のマグカップが目印。天神大名で40年続く老舗珈琲ショップが<br>
+      若い人にも幸せを届けたいと2019年にOPENしました。</p>
+    </section>
+
+    <!-- ------------------------------------
+    menu two
+    ------------------------------------ -->
+    <section id="menu" class="menu">
+      <h2>MENU</h2>
+      <table>
+          <tr>
+              <th>ブレンド珈琲</th><td>￥420＋税</td>
+          </tr>
+          <tr>
+              <th>カフェラテ</th> <td>￥480＋税</td>
+          </tr>
+          <tr>
+              <th>カフェモカ</th><td>￥490＋税</td>
+          </tr>
+          <tr>
+              <th>キャラメルマキアート</th> <td>￥490＋税</td>
+          </tr>
+          <tr>
+              <th>バナナスムージー</th><td>￥420＋税</td>
+          </tr>
+          <tr>
+              <th>レモンスカッシュ</th><td>￥590＋税</td>
+          </tr>
+         
+      </table>
+    </section>
+
+    <!--LESSON3テーブルレイアウト
+    <section class="hiyou">
+      <h2>テーブルレイアウト</h2>
+      <table>
+          <tr>
+              <th>名前</th>
+              <th>年齢</th>
+              <th>血液型</th>
+          </tr>
+          <tr>
+              <td>田中</td>
+              <td>A</td>
+              <td>28</td>
+          </tr>
+          <tr>
+              <td>渡辺</td>
+              <td>B</td>
+              <td>38</td>
+          </tr>
+      </table>
+    </section>
+-->
+    <!-- ------------------------------------
+    access
+    ------------------------------------ -->
+      <section id="access" class="access">
+        <h2>ACCESS</h2>
+        <p>〒811-1111</p>
+        <p>福岡家福岡市中央区大名1-1 旧大名小学校跡地</p>
+        <p>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6647.4255103160385!2d130.38989164326182!3d33.586806572561976!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x2ec75dac51c7fb43!2z5penIOemj-WyoeW4gueri-Wkp-WQjeWwj-WtpuagoQ!5e0!3m2!1sja!2sjp!4v1575464715847!5m2!1sja!2sjp" width="70%" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+        </p>
+    </section>
+    <!-- ------------------------------------
+    access
+    <section class="access">
+      <h2>アクセス</h2>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1662059.0534304355!2d137.60934103118862!3d35.54853798958139!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188c77b78c7ad3%3A0x1ffe883c91f5176!2z5Zu956uL5Zu95Lya5Zuz5pu46aSo!5e0!3m2!1sja!2sjp!4v1647312259594!5m2!1sja!2sjp" width="70%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </section>
+    ------------------------------------ -->
+    
+
+    <!-- ------------------------------------
+    youtube
+    ------------------------------------ -->
+    <section class="youtube">
+      <h2>公式Youtube</h2>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/RVUwaRPdAmQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </section>
+    <!--youtubeここまで-->
+  </main>
+
+  <!-- ------------------------------------
+  aside
+  ------------------------------------ -->
+  <section class="side">
+    <h2>INFOMATION</h2>
+    <h3>「美味しいBLACKCOFFEEの煎れ方講座」<br>
+    発売しました！</h3>
+    <div class="icon"><img alt="本" src="img/book.png"></div>
+    <a href="">購入はこちら</a>
+  </section>
+
+  <!-- ------------------------------------
+  問い合わせフォーム contact four
+  ------------------------------------ -->
+  
+  <section id="contact" class="contact">
+    <h2>CONTACT</h2>
+    <p>お気軽にお問い合わせください。</p>
+    
+    <form action="">
+        <div>
+            <label for="name">名前</label>
+            <input type="text" name="name">
+        </div>
+        <div>
+            <label for="email">メール</label>
+            <input type="email" name="email">
+        </div>
+        <div>
+            <label for="tel">電話</label>
+            <input type="tel" name="tel">
+        </div>
+        <div>
+            <label for="date">日付</label>
+            <input type="date" name="date">
+        </div>
+        <div>
+            <label for="naiyou">内容</label>
+            <textarea name="naiyou" id="" cols="30" rows="10"></textarea>
+        </div>
+        <input type="submit" value="送信する">
+    </form>
+
+  </section>
+  <!-- ------------------------------------
+  zindex
+  ------------------------------------ -->
+  <div class="content">
+    <section class="zindex">
+      <img src="img/hero.jpg" alt="">
+      <p>ここに文章が入ります。ここに文章が入ります。ここに文章が入ります。ここに文章が入ります。ここに文章が入ります。ここに文章が入ります。</p>
+    </section>  
+  </div>
+
+  <!-- ------------------------------------
+  article
+  ------------------------------------ -->
+  <article>
+    
+    <section class="box">
+      <div class="icon"><img alt="本" src="img/hero.jpg"></div>
+      <h3>見出し3</h3>
+      <p>テキストテキストテキストテキストテキストテキストテキストテキスト
+        テキストテキストテキストテキストテキストテキストテキストテキスト
+      </p>
+    </section>
+    
+    <section class="box">
+      <div class="icon"><img alt="本" src="img/hero.jpg"></div>
+      <h3>見出し3</h3>
+      <p>テキストテキストテキストテキストテキストテキストテキストテキスト
+        テキストテキストテキストテキストテキストテキストテキストテキスト</p>
+    </section>
+  </article>
+
+  <!-- ------------------------------------
+  article
+  ------------------------------------ -->
+  <article>
+    <section class="box">
+      <div class="icon"><img alt="本" src="img/hero.jpg"></div>
+      <h3>見出し3</h3>
+      <p>テキストテキストテキストテキストテキストテキストテキストテキスト
+        テキストテキストテキストテキストテキストテキストテキストテキスト
+      </p>
+    </section>
+    <section class="box">
+      <div class="icon"><img alt="本" src="img/hero.jpg"></div>
+      <h3>見出し3</h3>
+      <p>テキストテキストテキストテキストテキストテキストテキストテキスト
+        テキストテキストテキストテキストテキストテキストテキストテキスト</p>
+    </section>
+    <section class="box">
+      <div class="icon"><img alt="本" src="img/hero.jpg"></div>
+      <h3>見出し3</h3>
+      <p>テキストテキストテキストテキストテキストテキストテキストテキスト
+        テキストテキストテキストテキストテキストテキストテキストテキスト</p>
+    </section>
+  </article>
+
+  
+  
+  <!-- ------------------------------------
+  footer
+  ------------------------------------ -->
+    <footer>
+      <small>&copy; ABCDE.com </small>
+    </footer>
+
+  
+</body>
+
+<!-- ------------------------------------
+script
+------------------------------------ -->
+<script type="text/javascript" src="js/script.js"></script>
+
+</html>
