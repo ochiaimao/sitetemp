@@ -360,27 +360,24 @@ TOPの戻るボタン
   margin-right: 30%;
   margin-left: 30%;
 }
-
+/*
 .menu p {
   margin-bottom: 10px;
 }
-
+*/
 .menu table {
   width: 350px;
   margin: 0 auto;
-  text-align: center;
 }
 
-.menu th {
+.menu th,
+.menu td  {
   color: #fff;
   padding: 10px;
+  text-align: left;
 }
 
-.menu td {
-  color: #fff;
-  padding: 10px;
-}
-
+/*
 .hiyou {
   background-color: #7eb5b6;
   padding: 30px;
@@ -414,7 +411,7 @@ TOPの戻るボタン
   border: solid 1px black;
   background-color: #fff;
 }
-
+*/
 /*access three*/
 .access {
   background-color: white;
@@ -455,6 +452,23 @@ TOPの戻るボタン
   border-bottom: solid 3px #fff;
   margin-right: 30%;
   margin-left: 30%;
+}
+
+.youtube iframe {
+  width: 560px;
+  height: 315px;
+}
+@media screen and (max-width: 768px) {
+  .youtube iframe {
+    width: 450px;
+    height: 250px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .youtube iframe {
+    width: 320px;
+    height: 250px;
+  }
 }
 
 /*access three*/
@@ -614,6 +628,13 @@ TOPの戻るボタン
       box-sizing: border-box;
       box-shadow: 0 0 10px #999;
   }
+
+  .contact form {
+    width: 250px;
+    margin: 0 auto;
+    
+  }
+
   
   }
   
