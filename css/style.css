@@ -316,7 +316,7 @@ TOPの戻るボタン
   display: inline-block;
   text-align: center;
   line-height: 45px;
-
+  z-index: 10;
 }
 
 .page_up:hover {
@@ -472,7 +472,7 @@ TOPの戻るボタン
   color: #7eb5b6;
   letter-spacing: 2px;
   padding-bottom: 5px;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   border-bottom: solid 3px #7eb5b6;
   margin-right: 30%;
   margin-left: 30%;
@@ -491,6 +491,11 @@ TOPの戻るボタン
   color: white;
   background-color: #f2cb5c;
 }
+@media only screen and (max-width: 480px){
+  .side h2 {
+    margin: 0 10%;
+  }
+}
 
 /*contact four*/
 .contact {
@@ -504,8 +509,7 @@ TOPの戻るボタン
   font-weight: bold;
   margin-bottom: 20px;
   border-bottom: solid 3px #ffffff;
-  margin-right: 30%;
-  margin-left: 30%;
+  margin:0 30%;
 }
 
 .contact p {
@@ -553,11 +557,23 @@ TOPの戻るボタン
   border-radius: 40px;
 }
 
+.contact input[type="submit"]:hover {
+  color: #7eb5b6;
+  background-color: #fff;
+}
+
+@media only screen and (max-width: 480px){
+  .contact form {
+    width: 250px;
+    margin: 0 auto;
+  }
+}
+
 /*zindex*/
 .content{
   width: 100%;
   max-width: 1080px;
-  height: 400px;
+  height: 480px;
   padding: 30px;
   
 }
@@ -617,13 +633,6 @@ TOPの戻るボタン
       box-sizing: border-box;
       box-shadow: 0 0 10px #999;
   }
-
-  .contact form {
-    width: 250px;
-    margin: 0 auto;
-    
-  }
-
   
   }
   
