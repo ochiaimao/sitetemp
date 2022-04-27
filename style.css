@@ -1,0 +1,751 @@
+/*-------------------------------
+ 全デバイス共通
+ @charset "UTF-8";
+
+ リセットCSS
+* {
+  margin: 0;
+  padding: 0;
+}
+ -------------------------------*/
+ * {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+/*header*/
+header {
+  background: #7eb5b6;
+  padding: 10px;
+}
+
+header h1 {
+  color: #fff;
+  font-family: 'Hubballi', cursive;
+  font-size: 60px;
+  font-size: 5vw;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+header h1 a {
+  color: #fff;
+  font-family: 'Hubballi', cursive;
+  font-size: 60px;
+  font-size: 5vw;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+header h1 a:hover {
+  color: #f2cb5c;
+}
+
+header nav ul { 
+  display: flex;
+  justify-content: center;
+  flex-wrap: nowrap;
+  list-style: none;
+  list-style-type: none;
+  list-style-position: outside;
+  font-weight: bold;
+   
+}
+header nav ul li {
+  width: 100%;
+  border-right: solid 3px white;
+}
+
+header nav ul li:last-child {
+  border-right: none;
+  
+}
+
+header nav ul li a {
+  color: #fff;
+  display: inline-block;
+}
+
+header nav ul li a:hover {
+  color: #f2cb5c;
+}
+
+/*-------------------------------
+ハンバーガーメニュー
+.menu-trigger
+-------------------------------*/
+
+.menu-trigger {
+  display: none; /*PCの時は消しておく*/
+  -webkit-appearance: none; /* Crome用　フォ-ム要素の初期化*/
+  appearance: none; /*フォ-ム要素の初期化*/
+  border: none;
+  background: transparent; /* Firefox用 背景を透過させる設定*/
+}
+.menu-trigger,
+.menu-trigger span {
+	display: inline-block; /* ブロック要素とインライン要素の中間の状態の要素*/
+	transition: all .4s;
+	box-sizing: border-box;
+}
+
+/* =======================
+#global-nav
+======================= */
+#global-nav ul {
+  display: flex; /*子要素の横並びの設定*/
+  justify-content: center; /* 中央に寄せる設定*/
+  list-style: none;/*リストの中黒を取る設定*/
+}
+
+#global-nav li{
+  width: 160px;
+  padding-left: 10px;
+}
+
+#global-nav li:last-child {
+  width: 150px;
+}
+
+#global-nav li a {
+  display: block;
+   color:#fff;
+   text-decoration: none;
+   font-size: 12px;
+   padding-bottom: 12px;
+}
+
+#global-nav li a:hover {
+  color: #f2cb5c;
+}
+/*-------------------------------
+ハンバーガーメニュー
+responsive　max-width:767px
+-------------------------------*/
+@media (max-width:767px) {
+  /*----- スマホ ハンバーガーメニュー ----- */
+  .menu-trigger {
+    width: 56px;
+    height: 60px;
+    /*positionで画面左上に絶対配置*/
+    position: absolute;
+    top: 0;
+    left: 0;
+    /*要素の重なり、上のレイヤーと同じ考えかた*/
+    z-index: 2;
+    /*クリックした際のボタン周りの線を消す*/
+    outline: none;
+  }
+  .menu-trigger span {
+    position: absolute;
+    left: 50%;
+    width: 32px;
+    height: 2px;
+    background-color: #000;
+    /*menu-trigger内のspan全体を中心位置に揃える設定*/
+    transform: translate(-50%, -50%);
+  }
+  .menu-trigger span:nth-of-type(1) {
+    top: 16px;
+  }
+  .menu-trigger span:nth-of-type(2) {
+    top: 50%;
+  }
+  .menu-trigger span:nth-of-type(3) {
+    bottom: 14px;
+  }
+  /*.activeが付いているものは
+  クリックした際した後の表示を設定しています。*/
+  .menu-trigger.active span:nth-of-type(1) {
+    top: 49%;
+    /* 変形の設定　右側の軸は変えずに左側を傾けている */
+    transform: translate(-50%, -50%) rotate(-45deg);
+  }
+  .menu-trigger.active span:nth-of-type(2) {
+    opacity: 0; /*透過の指定で消してる*/
+  }
+  .menu-trigger.active span:nth-of-type(3) {
+    bottom: 49%;
+    /* 変形の設定　右側の軸は変えずに左側を上に傾けている */
+    transform: translate(-50%, -50%) rotate(45deg);
+  }
+  /*-------------------------------
+  ハンバーガーメニュー
+  スマホ ナビゲーション　max-width:767px
+  -------------------------------*/
+  #global-nav {
+    display: none;/* クリックする前は消えてほしい*/ 
+    width: 100vw;/*画面横幅めいいっぱい広げる*/
+    height: 100vh;/*画面縦幅めいいっぱい広げる*/
+    background: rgba(255,255,255,.95);
+    margin: 0;
+    padding: 90px 5% 0;
+    /*positionと組み合わせページをスクロールした場合も同じ位置に常に置く設定　transrateXと合わせてど真ん中に位置を合わせる設定*/
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: -1;/* 何かしらの要素の背面に設置*/
+  }
+  #global-nav.active {
+    display: block;/* クリックした時に表示*/
+    z-index: 1;/* 何かしらの要素の全面に設置*/
+  }
+
+  #global-nav ul {
+    /* display:flex;を解除して縦並びにしている*/
+    display: block;
+  }
+
+  #global-nav li,
+  #global-nav li:last-child {
+    /*画面横にめいいっぱい伸ばしている設定*/
+    width: 100%;
+  }
+  #global-nav li a {
+    font-size: 16px;
+    text-align: center;
+    border-bottom: 1px solid #ccc;
+    background: none;
+    padding-top: 12px;
+  }
+}/*END*/
+
+
+/*-------------------------------
+ヒーローイメージ
+-------------------------------*/
+.hero img {
+  width: 100%;
+}
+
+/*-------------------------------
+javascriptスライダー
+-------------------------------*/
+/*スライドする複数の画像をぴったりと重ねます*/
+#slide{
+  position:relative; /*positionの基準位置を設定*/
+  max-width: 100%;
+  /*margin: 10% auto;*/
+  }
+  #slide img{
+  /*#slide内の画像をめいいっぱい広げている*/
+  width: 100%;
+  height: auto;
+  box-shadow: 2px 4px 12px -2px rgba(0,0,0, 0.5);
+  /* #slide内で各画像の左上をそろえて配置 */
+  
+  position:absolute;
+  left:0;
+  top:0;
+  }
+  /* スライドのボタン位置と装飾 */
+  #slide p {
+    margin-top: 30%;
+  }
+  
+  #slide #nav-l {
+    position: absolute;
+    left: 10px;
+  }
+  
+  #slide #nav-r {
+    position: absolute;
+    right: 10px;
+  }
+  
+  #slide a.btns{
+    display: block;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;/*要素を円にする設定*/
+    font-size: 13px;
+    text-align: center;
+    color: #fff;
+    font-weight: bold;
+    background-color: rgba(0,0,0,0.7);
+    line-height: 40px;
+    text-decoration: none;
+  }
+
+/*-------------------------------
+javascriptクリックイベント
+
+aside {
+  clear: both;
+  display: flex; 子要素の横並びの設定
+  justify-content: center;  中央に寄せる設定
+  margin-top: 550px;
+  padding: 50px;
+  background-color: #c9c9c9;
+}
+
+#box {
+    width: 300px;
+    height: 300px;
+    border: 1px solid #303030;
+}
+
+aside ul {
+  padding: 50px;
+}
+-------------------------------*/
+/*-------------------------------
+TOPの戻るボタン
+-------------------------------*/
+.page_up {
+  position: fixed;
+  bottom: 50px;
+  right: 25px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #fff;
+  border: 1px solid rgb(33, 117, 155);
+  color: rgb(33, 117, 155);
+  display: inline-block;
+  text-align: center;
+  line-height: 45px;
+
+}
+
+.page_up:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+  
+.is-hide {
+   opacity: 0;
+  transition: opacity 350ms ease;
+}
+
+/*about one*/
+.about {
+  padding: 30px;
+}
+.about h2 {
+  color: #7eb5b6;
+  font-size: 1.5rem;
+  letter-spacing: 2px;
+  padding-bottom: 5px;
+  margin-bottom: 20px;
+  border-bottom: solid 3px #7eb5b6;
+  margin-right: 30%;
+  margin-left: 30%;
+}
+
+/*menu two*/
+.menu {
+  background-color: #7eb5b6;
+  padding: 30px;
+}
+
+.menu h2 {
+  color: #fff;
+  font-size: 1.5rem;
+  letter-spacing: 2px;
+  padding-bottom: 5px;
+  margin-bottom: 20px;
+  border-bottom: solid 3px #ffffff;
+  margin-right: 30%;
+  margin-left: 30%;
+}
+
+.menu p {
+  margin-bottom: 10px;
+}
+
+.menu table {
+  width: 350px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.menu th {
+  color: #fff;
+  padding: 10px;
+}
+
+.menu td {
+  color: #fff;
+  padding: 10px;
+}
+
+.hiyou {
+  background-color: #7eb5b6;
+  padding: 30px;
+}
+
+.hiyou h2 {
+  font-size: 1.5rem;
+  font-weight: bold;   
+  margin-bottom: 20px;
+
+  border-bottom: solid 3px #333;
+  margin-right: 30%;
+  margin-left: 30%;
+}
+
+.hiyou table {
+  width: 100%;
+  max-width: 700px;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hiyou th {
+  padding: 20px;
+  border:  solid 1px black;
+  background-color: #a2edf0;
+}
+.hiyou td {
+  padding: 20px;
+  border: solid 1px black;
+  background-color: #fff;
+}
+
+/*access three*/
+.access {
+  background-color: white;
+  padding: 30px;
+}
+
+.access h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #7eb5b6;
+  letter-spacing: 2px;
+  padding-bottom: 5px;
+  margin-bottom: 20px;
+  border-bottom: solid 3px #7eb5b6;
+  margin-right: 30%;
+  margin-left: 30%;
+}
+
+.access p {
+  line-height: 1.5rem;
+  margin-bottom: 15px;
+}
+
+/*youtube*/
+.youtube {
+  background-color: #7eb5b6;
+  padding: 30px;
+}
+
+.youtube h2 {
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: bold;
+
+  letter-spacing: 2px;
+  padding-bottom: 5px;
+  margin-bottom: 20px;
+  border-bottom: solid 3px #fff;
+  margin-right: 30%;
+  margin-left: 30%;
+}
+
+/*access three*/
+.side {
+  background-color: white;
+  padding: 30px;
+}
+
+.side h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #7eb5b6;
+  letter-spacing: 2px;
+  padding-bottom: 5px;
+  margin-bottom: 20px;
+  border-bottom: solid 3px #7eb5b6;
+  margin-right: 30%;
+  margin-left: 30%;
+}
+
+.side a {
+  color: black;
+  display: inline-block;
+  padding: 10px 80px;
+  background-color: #7eb5b6;
+  border: 2px solid white;
+  border-radius: 30px;
+}
+
+.side a:hover {
+  color: white;
+  background-color: #f2cb5c;
+}
+
+/*contact four*/
+.contact {
+  background-color: #7eb5b6;
+  padding: 30px;
+}
+
+.contact h2 {
+  color: #ffffff;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  border-bottom: solid 3px #ffffff;
+  margin-right: 30%;
+  margin-left: 30%;
+}
+
+.contact p {
+  line-height: 2.5rem;   
+}
+
+.contact form {
+  width: 350px;
+  margin: 0 auto;
+  
+}
+
+.contact label {
+  display: block;
+  text-align: left;
+}
+.contact input {
+  padding: 10px;
+  /*border: solid 1px #333;*/
+  border: none;
+  width: 100%;
+  background-color: white;
+  box-sizing: border-box;
+  text-align: left;
+}
+
+.contact textarea {
+  padding: 10px;
+  /*border: solid 1px #333;*/
+  border: none;
+  width: 100%;
+  background-color: white;
+  box-sizing: border-box;
+  text-align: left;
+}
+
+.contact input[type="submit"] {
+  width: 280px;
+  padding: 0.8rem 1rem;
+  margin-top: 0.5rem;
+  text-align: center;
+  background-color: #f2cb5c;
+  border: none;
+  /*background-image: linear-gradient(-180deg, #fff, #fae34f);*/
+  border-radius: 40px;
+}
+
+/*zindex*/
+.content{
+  width: 100%;
+  max-width: 1080px;
+  height: 400px;
+  padding: 30px;
+  
+}
+
+.content .zindex{
+  position: relative;
+  margin: 0 auto;
+  width: 90%;
+  height: 400px;
+}
+
+.content .zindex img{
+  position: absolute;
+  left: 20%;
+  top: 20px;
+  width: 400px;
+  height: auto;
+  object-fit: cover;
+}
+
+.content .zindex p{
+  position: absolute;
+  right: 20%;
+  background: #fff;
+  z-index: 100;
+  top: 50px;
+  width: 300px;
+  height:  auto;
+  padding: 30px;
+  box-sizing: border-box;
+  box-shadow: 0 0 8px #999;
+  text-align: justify;
+}
+@media only screen and (max-width: 480px){
+
+  .content .zindex{
+      position: relative;
+      width: 100%;
+      padding: 2%;
+      box-sizing: border-box;
+  }
+  
+  .content .zindex img{
+      position: static;
+      width: 90%;
+      height: auto;
+      margin: 0 auto;
+      display: block;
+      object-fit: cover;
+  }
+  
+  .content .zindex p{
+      position: static;
+      background: #fff;
+      width: 100%;
+      padding: 30px;
+      box-sizing: border-box;
+      box-shadow: 0 0 10px #999;
+  }
+  
+  }
+  
+  @media only screen and (max-width: 600px){
+  
+  .content .zindex{
+      position: relative;
+      width: 100%;
+      padding: 2%;
+      box-sizing: border-box;
+  }
+  
+  .content .zindex img{
+      position: static;
+      width: 90%;
+      height: auto;
+      margin: 0 auto;
+      display: block;
+      object-fit: cover;
+  }
+  
+  .content .zindex p{
+      position: static;
+      background: #fff;
+      width: 100%;
+      padding: 30px;
+      box-sizing: border-box;
+      box-shadow: 0 0 10px #999;
+  }
+  }
+  
+  @media only screen and (max-width: 920px){
+  
+  .content .zindex p{
+      right: 0;
+  }
+  }
+
+/*article*/
+article {
+  display: flex;
+  justify-content: center;
+  background-color: #7eb5b6;
+  padding: 20px 50px;
+}
+
+article .box {
+  margin: 20px;
+}
+
+article .box img {
+  width: 100%;
+}
+
+article h3 {
+  color: #ffffff;
+  font-size: 1.5rem;
+  /*font-weight: bold;*/
+  margin-bottom: 20px;
+  border-bottom: solid 1px #ffffff;
+  /*margin-right: 30%;
+  margin-left: 30%;*/
+}
+
+article .box p {
+  color: #ffffff;
+  text-align: left;
+}
+
+/*footer*/
+footer {
+  color: #7eb5b6;
+  height: 50px;
+  font-size: 1rem;
+}
+
+  /*-------------------------------
+  タブレット用スタイル
+  メディアクエリの記述によるメディアの指定（どのようなメディアに対する指示か）
+  新しいスクリーンのみ　以外の命令はメディアクエリの外の記述が適用される
+  幅は最大900pxまで（900px以下）
+
+レスポンシブ
+@media screen and (max-width: 1200px) {
+  header h1 {
+      font-size: 50px;
+  }
+}
+@media screen and (max-width: 768px) {
+  header h1 {
+      font-size: 40px;
+  }
+}
+@media screen and (max-width: 480px) {
+  header h1 {
+      font-size: 30px;
+  }
+
+  .access iframe {
+     width: 100%;
+  }
+}
+  -------------------------------*/
+
+   /*サイト生全体（#container）の横幅を100%とする
+  @media only screen and (max-width:768px) {
+    
+    #container{
+      width: 100%
+    }
+  }
+*/
+  
+
+  /*-------------------------------
+  スマホ用スタイル
+  メディアクエリの記述によるメディアの指定（どのようなメディアに対する指示か）
+  新しいスクリーンのみ　以外の命令はメディアクエリの外の記述と、タブレット用の記述が適用される
+  幅は最大500pxまで（500px以下）
+
+レスポンシブ スマホファースト
+@media screen and (min-width: 480px){
+
+}
+
+@media screen and (min-width: 768px){
+  
+}
+
+@media screen and (min-width: 1200px){
+  
+}
+  -------------------------------*/
+
+  
