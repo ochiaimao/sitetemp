@@ -1,0 +1,190 @@
+/*------------------------
+テンプレートA B共通
+背景ぶち抜きwidth: 100％;
+-------------------------*/
+* {
+    box-sizing: border-box;/*paddingとborder込みで計算 100%以上防止*/
+}
+html {
+    font-size: 29px;/*Web16px基準*/
+}
+
+p {
+    font-size: 1rem; /*pを基準に１倍*/
+}
+
+header,
+main,
+footer {
+    /*height: 30vh;*/ /*画面内比率の％*/
+}
+
+
+header  {
+    background-color: #e7fec6;
+}
+
+main {
+    background-color: #ffedaa;
+}
+
+footer {
+    background-color: #b9cdff;
+}
+
+/*------------------------
+テンプレートB　中央寄せデザイン
+-------------------------*/
+div.container {
+    background-color: #e5b9fa;
+    /*width: 50vw;*/
+    width: 100%;
+    /*width: calc(100% - 30px); /*横スクロールが出たとき値が違うものを計算する*/
+    max-width: 1054px; /*固定値の場合最大値*/
+    margin-right: auto; /*伸縮用*/
+    margin-left: auto; /*伸縮用*/
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/*------------------------
+B1 Floatレイアウト
+子が幅持つ
+-------------------------*/
+body#b1 main div.container div.boxSet {
+    background-color: #d2f6bf;
+    margin-bottom: 15px;
+}
+
+/*
+親要素の高さを保つため、float解除boxSetの閉じタグにスタイルをつける
+float書いたら書いておく
+*/
+body#b1 main div.container div.boxSet::after {
+    display: block; /*</div>をblock要素に指定　100％で段落ちする*/
+    content: ""; /*空コンテンツ*/
+    clear: both; /**/
+}
+
+body#b1 main div.container div.boxSet div.leftBox {
+    background-color: #fcf3c0;
+    float: left;
+}
+
+body#b1 main div.container div.boxSet div.leftBox150 {width: 158px;}
+body#b1 main div.container div.boxSet div.leftBox237 {width: 237px;}
+body#b1 main div.container div.boxSet div.leftBox324 {width: 324px;}
+body#b1 main div.container div.boxSet div.leftBox411 {width: 411px;}
+body#b1 main div.container div.boxSet div.leftBox498 {width: 498px;}
+body#b1 main div.container div.boxSet div.leftBox585 {width: 585px;}
+body#b1 main div.container div.boxSet div.leftBox672 {width: 672px;}
+body#b1 main div.container div.boxSet div.leftBox759 {width: 759px;}
+body#b1 main div.container div.boxSet div.leftBox846 {width: 846px;}
+
+
+body#b1 main div.container div.boxSet div.rightBox {
+    background-color: #f7a1ef;
+    float: right;
+}
+
+body#b1 main div.container div.boxSet div.rightBox150 {width: 158px;}
+body#b1 main div.container div.boxSet div.rightBox237 {width: 237px;}
+body#b1 main div.container div.boxSet div.rightBox324 {width: 324px;}
+body#b1 main div.container div.boxSet div.rightBox411 {width: 411px;}
+body#b1 main div.container div.boxSet div.rightBox498 {width: 498px;}
+body#b1 main div.container div.boxSet div.rightBox585 {width: 585px;}
+body#b1 main div.container div.boxSet div.rightBox672 {width: 672px;}
+body#b1 main div.container div.boxSet div.rightBox759 {width: 759px;}
+body#b1 main div.container div.boxSet div.rightBox846 {width: 846px;}
+
+/*------------------------
+B2 flexBoxレイアウト
+段落ちしない 親から子に指示
+-------------------------*/
+body#b2 main div.container div.boxSet {
+    background-color: #d2f6bf;
+    display: flex;
+    flex-direction: row; /*段組み　flex書いたら書いておく*/
+    justify-content: space-between; /*真ん中に隙間*/
+}
+
+
+body#b2 main div.container div.boxSet div.leftBox {
+    background-color: #fcf3c0;
+    /*flex-grow: 0; flex-shrink: 0; flex-basis: 150px; 幅*/
+    /*flex: 0 0 150px; 伸縮固定*/
+    flex: 1 1 48%;
+    margin-right: 10px;
+}
+
+body#b2 main div.container div.boxSet div.rightBox {
+    background-color: #f7a1ef;
+    /*flex: 0 0 846px;*/
+    flex: 1 1 48%;
+}
+
+
+/*------------------------
+テンプレートC,D　2段組み,3段組みデザイン
+-------------------------*/
+/*段組み用 段組みしたい親要素にdisplay:flex;を記述*/
+body#typeC main div.container,
+body#typeD main div.container {
+    display: flex;
+    flex-direction: row; /*横並び　flexを入れたら必ず入れる*/
+    /*flex-direction: row-reverse; /*横並び　flexを入れたら必ず入れる*/
+    /*flex-direction: column;*/ /*段落ちflexを入れたら必ず入れる*/
+}
+
+body#typeC main div.container div#mainContent,
+body#typeD main div.container div#mainContent {
+    background-color: #9ff6a0;
+    flex: 1 1 auto; /*flex-grow,flex-shrink,flex-basisの一括指定*/
+    order: 2; /*並び　真ん中*/
+}
+body#typeC main div.container div#subContent1,
+body#typeD main div.container div#subContent1 {
+    background-color: #92e8f7;
+    flex: 0 0 150px; /*flex-grow,flex-shrink,flex-basisの一括指定*/
+    order: 1; /*並び 右*/
+}
+
+body#typeC main div.container div#subContent2,
+body#typeD main div.container div#subContent2 {
+    background-color: #6b71ee;
+    flex: 0 0 150px; /*flex-grow,flex-shrink,flex-basisの一括指定*/
+    order: 3; /*並び 左*/
+}
+
+/*------------------------
+テンプレートE,F　3段組みデザイン　左固定右側スクロール
+-------------------------*/
+body#typeE header,
+body#typeF header {
+    width: 200px; /*開けた分だけの幅*/
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+}
+
+/*左側を開けておく*/
+body#typeE main {
+    width: 100%;
+}
+
+body#typeF main{
+    width: 100%;
+    max-width: calc(100% - 400px); /*左側を開けた分だけ吸収*/
+    margin-left: 200px; /*左側を開けておく*/
+    margin-right: 200px; /*右側を開けておく*/
+}
+
+body#typeF main div#subContent1 {
+    background-color: #92e8f7;
+    position: fixed; 
+    right: 0; /*右側固定*/
+    top: 0;
+    width: 200px;
+    height: 100vh;
+}
