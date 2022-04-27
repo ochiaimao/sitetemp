@@ -455,21 +455,10 @@ TOPの戻るボタン
 }
 
 .youtube iframe {
-  width: 560px;
-  height: 315px;
+  width: 70%;
+  height: 450px;
 }
-@media screen and (max-width: 768px) {
-  .youtube iframe {
-    width: 450px;
-    height: 250px;
-  }
-}
-@media screen and (max-width: 480px) {
-  .youtube iframe {
-    width: 320px;
-    height: 250px;
-  }
-}
+
 
 /*access three*/
 .side {
